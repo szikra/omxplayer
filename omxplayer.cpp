@@ -127,6 +127,7 @@ bool              m_gen_log             = false;
 bool              m_loop                = false;
 int               m_layer               = 0;
 int               m_display             = 0;
+double            m_step_distance[]     = {1.0, 5.0, 30.0, 600.0}; 
 
 enum{ERROR=-1,SUCCESS,ONEBYTE};
 
@@ -1244,7 +1245,7 @@ int main(int argc, char *argv[])
         }
         else
         {
-          m_incr = -600.0;
+          m_incr = -m_step_distance[3];
         }
         break;
       case KeyConfig::ACTION_NEXT_CHAPTER:
@@ -1258,7 +1259,7 @@ int main(int argc, char *argv[])
         }
         else
         {
-          m_incr = 600.0;
+          m_incr = m_step_distance[3];
         }
         break;
       case KeyConfig::ACTION_PREVIOUS_SUBTITLE:
@@ -1355,29 +1356,29 @@ int main(int argc, char *argv[])
         m_stop = true;
         goto do_exit;
         break;
-      case KeyConfig::ACTION_SEEK_BACK_SMALL:
-        if(m_omx_reader.CanSeek()) m_incr = -1.0;
-        break;
       case KeyConfig::ACTION_SEEK_FORWARD_SMALL:
-        if(m_omx_reader.CanSeek()) m_incr = 1.0;
+        if(m_omx_reader.CanSeek()) m_incr = m_step_distance[0];
+        break;
+      case KeyConfig::ACTION_SEEK_BACK_SMALL:
+        if(m_omx_reader.CanSeek()) m_incr = -m_step_distance[0];
         break;
       case KeyConfig::ACTION_SEEK_FORWARD_MEDIUM:
-        if(m_omx_reader.CanSeek()) m_incr = 5.0;
+        if(m_omx_reader.CanSeek()) m_incr = m_step_distance[1];
         break;
       case KeyConfig::ACTION_SEEK_BACK_MEDIUM:
-        if(m_omx_reader.CanSeek()) m_incr = -5.0;
+        if(m_omx_reader.CanSeek()) m_incr = -m_step_distance[1];
         break;
       case KeyConfig::ACTION_SEEK_FORWARD_LARGE:
-        if(m_omx_reader.CanSeek()) m_incr = 30.0;
+        if(m_omx_reader.CanSeek()) m_incr = m_step_distance[2];
         break;
       case KeyConfig::ACTION_SEEK_BACK_LARGE:
-        if(m_omx_reader.CanSeek()) m_incr = -30.0;
+        if(m_omx_reader.CanSeek()) m_incr = -m_step_distance[2];
         break;
       case KeyConfig::ACTION_SEEK_FORWARD_XL:
-        if(m_omx_reader.CanSeek()) m_incr = 600.0;
+        if(m_omx_reader.CanSeek()) m_incr = m_step_distance[3];
         break;
       case KeyConfig::ACTION_SEEK_BACK_XL:
-        if(m_omx_reader.CanSeek()) m_incr = -600.0;
+        if(m_omx_reader.CanSeek()) m_incr = -m_step_distance[3];
         break;
       case KeyConfig::ACTION_SEEK_RELATIVE:
           m_incr = result.getArg() * 1e-6;
