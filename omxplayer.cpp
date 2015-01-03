@@ -1356,15 +1356,27 @@ int main(int argc, char *argv[])
         goto do_exit;
         break;
       case KeyConfig::ACTION_SEEK_BACK_SMALL:
-        if(m_omx_reader.CanSeek()) m_incr = -30.0;
+        if(m_omx_reader.CanSeek()) m_incr = -1.0;
         break;
       case KeyConfig::ACTION_SEEK_FORWARD_SMALL:
-        if(m_omx_reader.CanSeek()) m_incr = 30.0;
+        if(m_omx_reader.CanSeek()) m_incr = 1.0;
+        break;
+      case KeyConfig::ACTION_SEEK_FORWARD_MEDIUM:
+        if(m_omx_reader.CanSeek()) m_incr = 5.0;
+        break;
+      case KeyConfig::ACTION_SEEK_BACK_MEDIUM:
+        if(m_omx_reader.CanSeek()) m_incr = -5.0;
         break;
       case KeyConfig::ACTION_SEEK_FORWARD_LARGE:
-        if(m_omx_reader.CanSeek()) m_incr = 600.0;
+        if(m_omx_reader.CanSeek()) m_incr = 30.0;
         break;
       case KeyConfig::ACTION_SEEK_BACK_LARGE:
+        if(m_omx_reader.CanSeek()) m_incr = -30.0;
+        break;
+      case KeyConfig::ACTION_SEEK_FORWARD_XL:
+        if(m_omx_reader.CanSeek()) m_incr = 600.0;
+        break;
+      case KeyConfig::ACTION_SEEK_BACK_XL:
         if(m_omx_reader.CanSeek()) m_incr = -600.0;
         break;
       case KeyConfig::ACTION_SEEK_RELATIVE:
