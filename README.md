@@ -133,14 +133,14 @@ Key bindings to control omxplayer while playing:
     p / space   pause/resume
     -           decrease volume
     + / =       increase volume
-    left arrow  seek back small (-1 seconds)
-    right arrow seek forward small (+1 seconds)
-    [           seek back medium (-5 seconds)
-    ]           seek forward medium (+5 seconds)
-    down arrow  seek back long (-30 seconds)
-    up arrow    seek forward long (+30 seconds)
-    {           seek back extra long (-600 seconds)
-    }           seek forward extra long (+600 seconds)
+    left arrow  seek back small (-30 seconds)
+    right arrow seek forward small (+30 seconds)
+    [           seek back medium (-60 seconds)
+    ]           seek forward medium (+60 seconds)
+    down arrow  seek back long (-600 seconds)
+    up arrow    seek forward long (+600 seconds)
+    {           seek back extra long (-1800 seconds)
+    }           seek forward extra long (+1800 seconds)
 
 
 ## KEY CONFIG SYNTAX

@@ -127,7 +127,7 @@ bool              m_gen_log             = false;
 bool              m_loop                = false;
 int               m_layer               = 0;
 int               m_display             = 0;
-double            m_step_distance[]     = {1.0, 5.0, 30.0, 600.0}; 
+double            m_step_distance[]     = {30.0, 60.0, 600.0, 1800.0}; 
 
 enum{ERROR=-1,SUCCESS,ONEBYTE};
 
