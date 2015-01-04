@@ -103,6 +103,7 @@ Usage: omxplayer [OPTIONS] [FILE]
         --display n             Set display to output to
         --cookie 'cookie'       Send specified cookie as part of HTTP requests
         --user-agent 'ua'       Send specified User-Agent as part of HTTP requests
+        --step-distance s,m,l,x Set short, medium, long, extra long step (seek) distance
 
 For example:
 
@@ -132,10 +133,15 @@ Key bindings to control omxplayer while playing:
     p / space   pause/resume
     -           decrease volume
     + / =       increase volume
-    left arrow  seek -30 seconds
-    right arrow seek +30 seconds
-    down arrow  seek -600 seconds
-    up arrow    seek +600 seconds
+    left arrow  seek back small (-1 seconds)
+    right arrow seek forward small (+1 seconds)
+    [           seek back medium (-5 seconds)
+    ]           seek forward medium (+5 seconds)
+    down arrow  seek back long (-30 seconds)
+    up arrow    seek forward long (+30 seconds)
+    {           seek back extra long (-600 seconds)
+    }           seek forward extra long (+600 seconds)
+
 
 ## KEY CONFIG SYNTAX
 
@@ -163,8 +169,12 @@ The list of valid [action]s roughly corresponds to the list of default key bindi
     INCREASE_VOLUME
     SEEK_BACK_SMALL
     SEEK_FORWARD_SMALL
+    SEEK_BACK_MEDIUM
+    SEEK_FORWARD_MEDIUM
     SEEK_BACK_LARGE
     SEEK_FORWARD_LARGE
+    SEEK_BACK_XL
+    SEEK_FORWARD_XL
     STEP
 
 Valid [key]s include all alpha-numeric characters and most symbols, as well as:

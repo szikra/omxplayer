@@ -572,6 +572,7 @@ int main(int argc, char *argv[])
   const int display_opt     = 0x20f;
   const int http_cookie_opt = 0x300;
   const int http_user_agent_opt = 0x301;
+  const int step_distance_opt = 0x400;
 
   struct option longopts[] = {
     { "info",         no_argument,        NULL,          'i' },
@@ -627,6 +628,7 @@ int main(int argc, char *argv[])
     { "display",      required_argument,  NULL,          display_opt },
     { "cookie",       required_argument,  NULL,          http_cookie_opt },
     { "user-agent",   required_argument,  NULL,          http_user_agent_opt },
+    { "step-distance",required_argument,  NULL,          step_distance_opt },
     { 0, 0, 0, 0 }
   };
 
@@ -851,6 +853,9 @@ int main(int argc, char *argv[])
       case http_user_agent_opt:
         m_user_agent = optarg;
         break;    
+      case step_distance_opt:
+        sscanf(optarg, "%lf,%lf,%lf,%lf", &m_step_distance[0], &m_step_distance[1], &m_step_distance[2], &m_step_distance[3]);
+        break;
       case 0:
         break;
       case 'h':
